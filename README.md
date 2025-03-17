@@ -6,10 +6,12 @@
 
 ## Usage
 
-To implement this feature in your repository, insert the following code into any Markdown file:
+To add this feature to your profile, insert the following code into your `.profile/README.md`:
+
+(replace `tijn` with your username of course)
 
 ```
-[![Tijn's GitHub stats](https://frs.jonas.zone/langs/tijn)](https://codeberg.org/tijn/forgejo-readme-stats)
+![Tijn's GitHub stats](https://frs.jonas.zone/langs/tijn)]
 ```
 
 This implementation supports custom instances by appending the parameter `?instance=<your_instance_url>` to the URL.
