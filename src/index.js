@@ -32,6 +32,9 @@ app.get("/langs/:user", async (req, res) => {
   res.type("svg");
   res.send(svgChart);
 });
+app.get("/", (req, res) => {
+  res.redirect("https://codeberg.org/tijn/forgejo-readme-stats");
+});
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
