@@ -170,7 +170,7 @@ export function generateSVGBarChart(data) {
 
   // Add language progress bars
   cumulativeWidth = 0;
-  for (const bar of topBars) {
+  for (const bar of bars) {
     svgContent += `
           <rect
             mask="url(#rect-mask)"
