@@ -40,6 +40,9 @@ export function generateSVGBarChart(data) {
   // Sort bars by percentage (descending) to match the example
   bars.sort((a, b) => b.percentage - a.percentage);
 
+  // Limit to top 6 languages
+  const topBars = bars.slice(0, 6);
+
   // Generate SVG content
   let svgContent = `
     <svg
@@ -159,7 +162,7 @@ export function generateSVGBarChart(data) {
 
   // Add language progress bars
   cumulativeWidth = 0;
-  for (const bar of bars) {
+  for (const bar of topBars) {
     svgContent += `
           <rect
             mask="url(#rect-mask)"
@@ -178,8 +181,8 @@ export function generateSVGBarChart(data) {
           <g transform="translate(0, 25)">
             <g transform="translate(0, 0)">`;
 
-  // Left column languages (first half)
-  const leftColumnLangs = bars.slice(0, Math.ceil(bars.length / 2));
+  // Left column languages (3 languages max)
+  const leftColumnLangs = topBars.slice(0, 3);
   leftColumnLangs.forEach((bar, index) => {
     svgContent += `
               <g transform="translate(0, ${index * 25})">
@@ -194,8 +197,8 @@ export function generateSVGBarChart(data) {
 
   svgContent += `</g><g transform="translate(150, 0)">`;
 
-  // Right column languages (second half)
-  const rightColumnLangs = bars.slice(Math.ceil(bars.length / 2));
+  // Right column languages (3 languages max)
+  const rightColumnLangs = topBars.slice(3, 6);
   rightColumnLangs.forEach((bar, index) => {
     svgContent += `
               <g transform="translate(0, ${index * 25})">
