@@ -2,7 +2,7 @@
 
 ## Example
 
-[![Tijn's GitHub stats](https://frs.jonas.zone/langs/tijn)](https://codeberg.org/tijn/forgejo-readme-stats)
+![Tijn's GitHub stats](https://frs.jonas.zone/langs/tijn)](https://codeberg.org/tijn/forgejo-readme-stats)
 
 ## Usage
 
