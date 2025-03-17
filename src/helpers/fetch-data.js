@@ -48,3 +48,23 @@ export async function fetchRepo(user, repo, instance) {
 
   return response;
 }
+
+export async function fetchLanguagesByRepo(user, repo, instance) {
+  const { domain, accessToken } = getInstance(instance);
+
+  const url = `https://${domain}/api/v1/repos/${user}/${repo}/languages`;
+
+  const headers = {
+    "Content-Type": "application/json",
+  };
+
+  if (accessToken) {
+    headers["Authorization"] = `Bearer ${accessToken}`;
+  }
+
+  let response;
+  response = await fetch(url, { headers: headers });
+  response = response.json();
+
+  return response;
+}

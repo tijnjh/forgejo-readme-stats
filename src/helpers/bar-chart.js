@@ -2,17 +2,25 @@ import { langColorMappings } from "../assets/lang-color-mappings.js";
 
 export function generatePercArray(array) {
   const countMap = {};
+
   for (const item of array) {
-    countMap[item] = (countMap[item] || 0) + 1;
+    for (const language in item) {
+      countMap[language] = (countMap[language] || 0) + item[language];
+    }
   }
-  const totalCount = array.length;
+
+  const totalCount = Object.values(countMap).reduce(
+    (sum, count) => sum + count,
+    0,
+  );
+
   const percentageMap = {};
-  for (const key in countMap) {
-    percentageMap[key] = (countMap[key] / totalCount) * 100;
+  for (const language in countMap) {
+    percentageMap[language] = (countMap[language] / totalCount) * 100;
   }
+
   return percentageMap;
 }
-
 export function generateSVGBarChart(data) {
   // Create SVG with the same dimensions and styling as the provided example
   const width = 300;

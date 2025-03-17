@@ -1,8 +1,9 @@
 import express from "express";
-import { fetchReposByProfile, fetchRepo } from "./helpers/fetch-data.js";
+import {
+  fetchReposByProfile,
+  fetchLanguagesByRepo,
+} from "./helpers/fetch-data.js";
 import { generatePercArray, generateSVGBarChart } from "./helpers/bar-chart.js";
-
-console.log();
 
 const app = express();
 const port = 3000;
@@ -20,18 +21,17 @@ app.get("/langs/:user", async (req, res) => {
     return;
   }
 
-  for (const { name } of repos) {
-    const { language } = await fetchRepo(user, name, instance);
-    if (!language) break;
-    langArr.push(language);
+  for (const repo of repos) {
+    const lang = await fetchLanguagesByRepo(user, repo.name, instance);
+    if (!lang) break;
+
+    langArr.push(lang);
   }
-
-  console.log(langArr);
-
   const svgChart = generateSVGBarChart(generatePercArray(langArr));
   res.type("svg");
   res.send(svgChart);
 });
+
 app.get("/", (req, res) => {
   res.redirect("https://codeberg.org/tijn/forgejo-readme-stats");
 });
