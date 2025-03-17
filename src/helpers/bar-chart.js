@@ -34,7 +34,7 @@ export function generateSVGBarChart(data) {
     };
   });
 
-  let svgContent = `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">`;
+  let svgContent = `<svg width="${width}" height="${height}" style="background-color: #fff; font-family: system-ui" xmlns="http://www.w3.org/2000/svg">`;
 
   bars.forEach((bar) => {
     svgContent += `<rect x="0" y="${bar.y}" width="${bar.width}" height="${barHeight}" fill="${bar.color}" />`;
