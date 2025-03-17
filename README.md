@@ -11,7 +11,7 @@ To add this feature to your profile, insert the following code into your `.profi
 (replace `tijn` with your username of course)
 
 ```
-![Tijn's GitHub stats](https://frs.jonas.zone/langs/tijn)
+[![Tijn's GitHub stats](https://frs.jonas.zone/langs/tijn)](https://frs.jonas.zone)
 ```
 
 This implementation supports custom instances by appending the parameter `?instance=<your_instance_url>` to the URL.
