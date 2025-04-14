@@ -8,7 +8,7 @@
 
 To add this feature to your profile, insert the following code into your `.profile/README.md`:
 
-(replace `tijn` with your username of course)
+(replace `codeberg` with your username of course)
 
 ```
 [![Codebergs's stats](https://frs.tijn.dev/langs/codeberg)](https://frs.tijn.dev)
