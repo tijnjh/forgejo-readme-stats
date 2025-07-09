@@ -1,4 +1,4 @@
-import { langColorMappings } from "../assets/lang-color-mappings.js";
+import langColorMappings from "../assets/lang-color-mappings.json" with { type: "json"};
 
 export function generatePercArray(array) {
   const countMap = {};
